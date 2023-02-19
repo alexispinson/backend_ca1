@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="https://lunevedy.com/assets/2.0/css/lunevedy.min.css" />
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/udetail.css' %}"/>
+
+<section class="theme-light section-selector-1">
+    	<div class="flex-cols-3 cols-padding cols-borders-width-2 cols-shadows cols-corners-soft rad-30px">
+			<div class="col-3">		
+			<h3>Personnals informations</h3>	
+                name : {{ user.name }} <br>
+                phone number : 0{{ user.phone_number }}<br>
+                email : {{ user.email }}<br>
+                <a href="edit"><button class="button">edit</button></a><br>
+			</div>
+
+			<div class="col-3">	
+				
+            {% if myvide %}
+            <h3>You don't have any cats</h3>
+            {% else %}
+			<h3>Your cats</h3>	
+            <ul>
+                {% for cat in list_of_mycats  %}
+                <li><a href="{{cat.catid}}">{{ cat.name }}</a><br>
+                <a href="delete/{{ cat.catid }}"><button class="button">delete</button></a><br>
+                <a href="edit/{{ cat.catid }}"><button class="button">edit</button></a><br></li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <a href="add"><button class="button">add a cat</button></a>
+				
+			</div>
+
+			<div class="col-3">	
+				
+            {% if elsevide %}
+            <h3>There are no other cats</h3>
+            {% else %}	
+            <h3>The others cats</h3>
+            <ul>
+                {% for cat in list_of_cats  %}
+                <li><a href="{{cat.catid}}">{{ cat.name }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+				
+			</div>
+
+
+	    </div>
+		
+
+<br>
+<a href="delete"><button class="button">delete user</button></a><br>
+<a href="../../"><button class="button">log out</button></a><br>
+</section>
+
+

@@ -1,0 +1,64 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}"/>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:700,600' rel='stylesheet' type='text/css'>
+
+
+<body>
+   
+
+    <form method="post" action="">
+        <div class="box">
+        <h1>Add your cat</h1>
+        {% csrf_token %}
+        {{form.name}}
+        {{form.treatment}}
+        {{form.date_of_birth}}
+        
+        <a href="#" onclick="this.closest('form').submit();return false;"><div class="btn">Add this cat</div></a>
+        
+        <a href="/user/{{userid}}"><div id="btn2">Back</div></a>  
+        
+        
+        </div> <!-- End Box -->
+          
+        </form>
+
+<script>
+    document.getElementById("id_name").value = "name";
+    document.getElementById("id_name").onfocus=function (){
+        if(this.value=="name"){
+            this.value='';
+        }
+    }
+    document.getElementById("id_name").onblur=function (){
+        if(this.value==''){
+            this.value="name";
+        }
+    }
+    document.getElementById("id_treatment").value = "treatment";
+    document.getElementById("id_treatment").onfocus=function (){
+        if(this.value=="treatment"){
+            this.value='';
+        }
+    }
+    document.getElementById("id_treatment").onblur=function (){
+        if(this.value==''){
+            this.value="treatment";
+        }
+    }
+    document.getElementById("id_date_of_birth").value = "2000-01-01";
+    document.getElementById("id_date_of_birth").onfocus=function (){
+        if(this.value=="2000-01-01"){
+            this.value='';
+        }
+    }
+    document.getElementById("id_date_of_birth").onblur=function (){
+        if(this.value==''){
+            this.value="2000-01-01";
+        }
+    }
+</script>
+
+</body>
+
+
